@@ -1,48 +1,149 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n-nodes-screenshotone
 
-# n8n-nodes-starter
+`n8n-nodes-screenshotone` is an n8n community node. It lets you use [ScreenshotOne](https://screenshotone.com/) in your n8n workflows.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+ScreenshotOne is a service that allows you to take screenshots of web pages, generate PDFs, convert HTML or Markdown to images and more.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)
+[Compatibility](#compatibility)  
+[Usage](#usage)
+[Resources](#resources)  
+[Development](#development)  
+[Version history](#version-history)
+[License](#license)
 
-## Prerequisites
+## Installation
 
-You need the following installed on your development machine:
+### Community Nodes
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation:
 
-## Using this starter
+1. Go to `Settings` > `Community Nodes`.
+2. Select `Install`.
+3. Enter `n8n-nodes-screenshotone` in `Enter npm package name`.
+4. Agree to the risks of using community nodes.
+5. Select `Install`.
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+![Install](./assets/install.png)
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+## Operations
 
-## More information
+1. **Screenshot** any website, HTML or Markdown. Returns result as image.
+2. **Full Page Screenshot** is the same as **Screenshot**, but returns the full page as an image.
+3. **PDF** from rendering PDFs from URLs, HTML or Markdown. Returns result as PDF.
+4. **Scrolling Screenshot** it is a [scrolling screenshot feature from ScreenshotOne](https://screenshotone.com/scrolling-screenshots/). Results as video or GIF.
+5. **Record Short Video** is to record a short video of a website, HTML or Markdown. Results as video or GIF.
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+For scrolling screenshots and video check out the [ScreenshotOne documentation](https://screenshotone.com/docs/animated-screenshots/).
+
+## Credentials
+
+To use ScreenshotOne node, you will need to authenticate with the ScreenshotOne API.
+
+1. [Sign up for or sign in to a ScreenshotOne account](https://dash.screenshotone.com/).
+2. [Create if needed and copy the API (access) key](https://dash.screenshotone.com/access).
+3. Create new credentials in n8n:
+   3.1. Add and use the ScreenshotOne node in your workflow.
+   3.2. Under "Credential to connect with", click "Create New Credential".
+   3.3. Paste the API (access) key you copied in step 2.
+
+Test the credentials and make sure it works:
+
+![Credentials](./assets/credentials.png)
+
+## Compatibility
+
+The node was created and tested with n8n version `1.98.2`. But there is no reason it won't work with older and newer versions.
+
+## Usage
+
+If you use n8n for the first time, check out the ["try it out" documentation ](https://docs.n8n.io/try-it-out/) to get started.
+
+### Response types
+
+ScreenshotOne may return the response in different formats based on the request options:
+
+- `json` - for JSON responses, e.g. for PDF or screenshot with URLs.
+- `text` - for text responses, e.g. raw HTML.
+- `base64` - for image responses.
+
+Examples:
+
+```json
+{
+	"content_type": "application/json",
+	"type": "json",
+	"response": {
+		"cache_url": "https://<URL of the screenshot in cache>"
+	}
+}
+```
+
+Or:
+
+```json
+{
+	"content_type": "text/html",
+	"type": "text",
+	"response": "<HTML body>"
+}
+```
+
+## Resources
+
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
+- [ScreenshotOne API documentation](https://screenshotone.com/docs/)
+- [ScreenshotOne](https://screenshotone.com/)
+- [ScreenshotOne Dashboard](https://dash.screenshotone.com/)
+
+## Version history
+
+- 0.1.0 - Initial release of the ScreenshotOne node for n8n 🥳
+
+## Development
+
+Check out [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building and developing the node.
+
+0. Install dependencies:
+
+```bash
+npm install
+```
+
+1. Build the node
+
+```bash
+npm run build
+```
+
+2. Link the node to n8n from the node directory
+
+```bash
+npm link
+```
+
+3. In your `~/.n8n/nodes` directory, link the node:
+
+```bash
+npm link n8n-nodes-screenshotone
+```
+
+4. Run n8n:
+
+```bash
+n8n start
+```
+
+Once the node is linked, you need to only rebuild and restart n8n to see the changes.
 
 ## License
 
 [MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+
+## License
+
+This project is licensed [under the MIT License](LICENSE.md).

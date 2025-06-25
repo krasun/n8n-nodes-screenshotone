@@ -1,19 +1,19 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-screenshotone",
   "version": "0.1.0",
-  "description": "",
+  "description": "ScreenshotOne node for n8n to take screenshots of web pages, scrolling screenshots, render PDFs, and more.",
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://screenshotone.com",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "ScreenshotOne",
+    "email": "support@screenshotone.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/screenshotone/n8n-nodes-screenshotone.git"
   },
   "engines": {
     "node": ">=20.15"
@@ -33,12 +33,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/ScreenshotOneCredentialsApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/ScreenshotOne/ScreenshotOne.node.js"
     ]
   },
   "devDependencies": {
