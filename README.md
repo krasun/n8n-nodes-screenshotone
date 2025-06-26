@@ -105,7 +105,7 @@ Or:
 
 ## Version history
 
-- 0.1.0 - Initial release of the ScreenshotOne node for n8n 🥳
+- 0.1.2 - Initial release of the ScreenshotOne node for n8n 🥳
 
 ## Development
 
