@@ -1,5 +1,8 @@
 # n8n-nodes-screenshotone
 
+![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png)
+[![screenshotone.com](https://screenshotone.com/logo.png)](https://screenshotone.com/)
+
 `n8n-nodes-screenshotone` is an n8n community node. It lets you use [ScreenshotOne](https://screenshotone.com/) in your n8n workflows.
 
 ScreenshotOne is a service that allows you to take screenshots of web pages, generate PDFs, convert HTML or Markdown to images and more.
